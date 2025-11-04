@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8 col-md-10">
+
+            <h2 class="mb-4 text-center">Registrar Cliente y Solicitud</h2>
+
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="card mb-4">
+                    <div class="card-header bg-naranja text-white">
+                        Datos del Cliente
+                    </div>
+                    <div class="card-body">
+                        {{ cliente_form.as_p }}
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        Detalles de la Solicitud
+                    </div>
+                    <div class="card-body">
+                        {{ solicitud_form.as_p }}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Guardar</button>
+            </form>
+            
+        </div> </div> </div>
+{% endblock %}

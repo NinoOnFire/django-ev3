@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<body>
+  <div class="form-container">
+      <h2>Iniciar Sesión</h2>
+      <form method="post">
+          {% csrf_token %}
+          <label for="username">Usuario</label>
+          <input type="text" name="username" required>
+          
+          <label for="password">Contraseña</label>
+          <input type="password" name="password" required>
+          
+          <button type="submit">Entrar</button>
+      </form>
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  </div>
+  
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+    {% else %}
+    {% endif %}
+    </body>
+</html>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Formulario de Mascota{% endblock %}
+
+{% block content %}
+<section class="formulario-mascota">
+    
+    <h1>Registrar Nueva Mascota</h1>
+    <p>Completa todos los campos para agregar una mascota a la galería.</p>
+    <hr>
+
+    {% comment %} El 'enctype' es OBLIGATORIO para que funcione la subida de imágenes {% endcomment %}
+    <form method="post" enctype="multipart/form-data">
+        
+        {% comment %} Token de seguridad de Django, siempre requerido {% endcomment %}
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <button type="submit">Guardar Mascota</button>
+        <a href="{% url 'galeria' %}">Cancelar</a>
+    </form>
+
+</section>
+{% endblock %}

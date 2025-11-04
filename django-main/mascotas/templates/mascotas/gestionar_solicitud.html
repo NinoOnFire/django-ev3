@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Gestionar Solicitud{% endblock %}
+
+{% block content %}
+<section class="admin-form">
+    
+    <h1>Gestionar Solicitud #{{ form.instance.Id }}</h1>
+    <p>Revisa los detalles y actualiza el estado de la solicitud.</p>
+    <hr>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <div>
+            <button type="submit" class="btn-guardar">Guardar Cambios</button>
+            
+            <a href="{% url 'eliminar_solicitud' form.instance.Id %}" class="btn-eliminar">Eliminar Solicitud</a>
+            
+            <a href="{% url 'lista_solicitudes' %}">Volver al listado</a>
+        </div>
+    </form>
+
+</section>
+{% endblock %}

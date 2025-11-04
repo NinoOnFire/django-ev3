@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            
+            <h2>{{ accion }} Cliente</h2>
+            <hr>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        {{ form.as_p }}
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a href="{% url 'lista_clientes' %}" class="btn btn-secondary me-md-2">
+                                Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                Guardar Cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

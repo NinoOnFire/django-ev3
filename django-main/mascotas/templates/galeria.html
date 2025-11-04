@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Galería{% endblock %}
+
+{% block content %}  
+
+
+<section class="imagen">
+    <h1>Galería de Imágenes</h1>
+            {% if user.is_authenticated %}
+                    <a href="{% url 'crear_mascota' %}" style="display: block; margin-bottom: 20px; font-weight: bold;">+ Agregar Nueva Mascota</a>
+            {% endif %}
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam, obcaecati ratione itaque...</p>
+
+    <div class="galeria">
+      {% for emp in mascotas %}
+      <div class="card-perro">
+        <img src="{% static '' %}{{ emp.foto }}" alt="{{ emp.nombre }}">        
+        <h2>{{ emp.nombre }}</h2>
+        <p><strong>Raza:</strong> {{ emp.raza }}</p>
+        <p><strong>Descripción:</strong> {{ emp.descripcion }}</p>
+        {% if not user.is_authenticated %}
+        <li><a href="{% url 'solicitud' %}">Solicitud</a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+        
+        <div style="padding-top: 10px; margin-top: 10px; border-top: 1px solid #ccc;">
+          
+          <a href="{% url 'editar_mascota' emp.pk %}">Editar</a> |
+          <a href="{% url 'eliminar_mascota' emp.pk %}" style="color: red;">Eliminar</a>
+      </div>
+        {% endif %}
+
+      </div>
+      
+      {% endfor %}
+    </div>
+</section>
+{% endblock %}

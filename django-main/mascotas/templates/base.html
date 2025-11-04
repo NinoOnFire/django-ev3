@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Mis Perris{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+      <h1>🐾 Mis Perris</h1>
+      <ul>
+        <li><a href="{% url 'inicio' %}">Inicio</a></li>
+        <li><a href="{% url 'galeria' %}">Galeria</a></li>
+        <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+        <li><a href="{% url 'solicitudes' %}">Solicitudes</a>
+
+
+        {% if user.is_authenticated %}
+          </li><li><a href="{% url 'lista_clientes' %}">Clientes</a>
+          </li> </li><li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+        
+
+
+
+        {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+  </nav>
+
+ 
+  <main>
+      {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

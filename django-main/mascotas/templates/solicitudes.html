@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Gestión de Solicitudes</h2>
+
+    {% if solicitudes %}
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Nombre Mascota</th>
+                    <th>Raza</th>
+                    <th>Detalle</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    {% if user.is_authenticated %}
+                        <th>Acciones</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in solicitudes %}
+                <tr>
+                    <td>{{ s.Id }}</td>
+                    <td>{{ s.Run_Cliente }}</td>
+                    <td>{{ s.Nombre_Mascota.nombre }}</td>
+                    <td>{{ s.Nombre_Mascota.raza }}</td>
+                    <td>{{ s.Detalle }}</td>
+                    <td>{{ s.Fecha|date:"d-m-Y H:i" }}</td>
+                    
+                    <!-- 🔹 Estado con color dinámico -->
+                    <td class="
+                        {% if s.estado == 'pendiente' %}
+                            estado-pendiente
+                        {% elif s.estado == 'rechazado' %}
+                            estado-rechazado
+                        {% elif s.estado == 'aceptado' %}
+                            estado-aceptado
+                        {% endif %}
+                    ">
+                        {{ s.get_estado_display }}
+                    </td>
+
+                    {% if user.is_authenticated %}
+                        <td>
+                            <a href="{% url 'gestionar_solicitud' s.pk %}" class="btn btn-primary btn-sm">
+                                Gestionar
+                            </a>
+                        </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-warning text-center">No hay solicitudes registradas.</div>
+    {% endif %}
+</div>
+{% endblock %}

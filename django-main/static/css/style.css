@@ -1,0 +1,744 @@
+/* ======== RESET BÁSICO ======== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* ======== NAVBAR ======== */
+nav {
+  background: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff9800;
+}
+
+/* ======== HERO (imagen de cabecera) ======== */
+.hero {
+  background-image: url("/static/images/tengo-un-perro-sh.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  background-repeat: no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.2em;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(231, 0, 0);
+  color: rgb(255, 252, 252);
+}
+
+/* ======== TABLAS ======== */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+h2 {
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  background: white;
+}
+
+.table th {
+  background-color: #ff6600;
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+.table td {
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.table tbody tr:hover {
+  background-color: #fff5eb;
+  transition: background-color 0.3s;
+}
+
+/* ======== BOTONES ======== */
+.btn-primary {
+  background-color: #007bff !important;
+  color: #fafafa !important;
+  border: none !important;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #0056b3 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* ======== FORMULARIOS MEJORADOS ======== */
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #444;
+  font-size: 1.8rem;
+}
+
+.form-container label {
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+  border-color: #ff6600;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255,102,0,0.3);
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #e65c00;
+}
+
+/* === ESTILOS PARA FORMULARIOS EN CARDS === */
+.card-body label {
+  display: block;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.card-body input[type="text"],
+.card-body input[type="email"],
+.card-body input[type="tel"],
+.card-body input[type="number"],
+.card-body input[type="date"],
+.card-body select,
+.card-body textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-body input:focus,
+.card-body select:focus,
+.card-body textarea:focus {
+  border-color: #ff6600;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1);
+  background-color: #fffbf7;
+}
+
+.card-body textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Espaciado entre campos del formulario */
+.card-body p {
+  margin-bottom: 20px;
+}
+
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Texto de ayuda */
+.card-body .helptext {
+  display: block;
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.errorlist {
+  color: #dc3545;
+  font-size: 0.875rem;
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.errorlist li {
+  margin: 0;
+}
+
+/* ======== GALERÍA ======== */
+.imagen {
+  text-align: center;
+  padding: 30px;
+}
+
+.imagen h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.imagen p {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  font-size: 14px;
+  color: #444;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 20px 40px;
+  justify-items: center;
+}
+
+.card-perro {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card-perro:hover {
+  transform: scale(1.05);
+}
+
+.card-perro img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card-perro h2 {
+  margin-top: 8px;
+  font-size: 16px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* ======== MAPA ======== */
+.mapa {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.mapa h2 {
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ======== ALERTAS ======== */
+.alert {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ====== Colores de estado ====== */
+.estado-pendiente {
+  background-color: #fff3cd;
+  color: #856404;
+  font-weight: bold;
+  text-align: center;
+}
+
+.estado-rechazado {
+  background-color: #f8d7da;
+  color: #721c24;
+  font-weight: bold;
+  text-align: center;
+}
+
+.estado-aceptado {
+  background-color: #d4edda;
+  color: #155724;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* --- Definición del color principal --- */
+.bg-naranja {
+  background-color: #ff6600 !important;
+}
+
+/* --- Estilo de Tarjeta (Card) Mejorado --- */
+.card {
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+  overflow: hidden;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card-header {
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 16px 24px;
+  letter-spacing: 0.3px;
+  border-bottom: none !important;
+}
+
+.card-body {
+  padding: 28px 24px;
+  background-color: #ffffff;
+}
+
+/* Colores adicionales para headers */
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+/* ======== TÍTULOS DE PÁGINA ======== */
+.text-center h2 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 35px;
+  position: relative;
+  display: inline-block;
+}
+
+.text-center h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6600, #ff9800);
+  border-radius: 2px;
+}
+
+/* ======== ADMIN FORM SECTION ======== */
+.admin-form,
+.formulario-mascota {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-mascota {
+  max-width: 600px;
+}
+
+.admin-form h1 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.formulario-mascota h1 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.admin-form p {
+  color: #6c757d;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.formulario-mascota p {
+  color: #6c757d;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.admin-form hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6600, #ff9800);
+  margin: 25px 0 30px 0;
+  border-radius: 2px;
+}
+
+.formulario-mascota hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6600, #ff9800);
+  margin: 25px 0 30px 0;
+  border-radius: 2px;
+}
+
+/* Estilos para campos del formulario en admin-form y formulario-mascota */
+.admin-form label,
+.formulario-mascota label {
+  display: block;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="email"],
+.admin-form input[type="tel"],
+.admin-form input[type="number"],
+.admin-form input[type="date"],
+.admin-form input[type="file"],
+.admin-form select,
+.admin-form textarea,
+.formulario-mascota input[type="text"],
+.formulario-mascota input[type="email"],
+.formulario-mascota input[type="tel"],
+.formulario-mascota input[type="number"],
+.formulario-mascota input[type="date"],
+.formulario-mascota input[type="file"],
+.formulario-mascota select,
+.formulario-mascota textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+}
+
+.admin-form input:focus,
+.admin-form select:focus,
+.admin-form textarea:focus,
+.formulario-mascota input:focus,
+.formulario-mascota select:focus,
+.formulario-mascota textarea:focus {
+  border-color: #ff6600;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1);
+  background-color: #fffbf7;
+}
+
+.admin-form textarea,
+.formulario-mascota textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.admin-form p {
+  margin-bottom: 0;
+}
+
+.admin-form form > p,
+.formulario-mascota form > p {
+  margin-bottom: 20px;
+}
+
+/* Estilo especial para input file (subida de archivos) */
+.formulario-mascota input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f8f9fa;
+}
+
+.formulario-mascota input[type="file"]:hover {
+  background-color: #e9ecef;
+}
+
+.formulario-mascota input[type="file"]:focus {
+  background-color: #fffbf7;
+}
+
+/* Contenedor de botones */
+.admin-form form > div {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Botón Guardar */
+.btn-guardar {
+  padding: 12px 28px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.3);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-guardar:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+/* Botón submit del formulario mascota */
+.formulario-mascota button[type="submit"] {
+  padding: 12px 28px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(255, 102, 0, 0.3);
+  margin-top: 30px;
+}
+
+.formulario-mascota button[type="submit"]:hover {
+  background-color: #e65c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
+}
+
+/* Botón Eliminar */
+.btn-eliminar {
+  padding: 12px 28px;
+  background-color: #dc3545;
+  color: white !important;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-eliminar:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+  color: white !important;
+}
+
+/* Link Volver */
+.admin-form a[href*="lista"] {
+  padding: 12px 24px;
+  color: #6c757d;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.admin-form a[href*="lista"]:hover {
+  color: #495057;
+  background-color: #f8f9fa;
+}
+
+/* Link Cancelar en formulario mascota */
+.formulario-mascota a[href*="galeria"] {
+  padding: 12px 24px;
+  color: #6c757d;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-left: 12px;
+}
+
+.formulario-mascota a[href*="galeria"]:hover {
+  color: #495057;
+  background-color: #f8f9fa;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 20px 16px;
+  }
+  
+  .card-header {
+    font-size: 1rem;
+    padding: 14px 16px;
+  }
+  
+  .admin-form {
+    padding: 25px 20px;
+    margin: 20px;
+  }
+  
+  .admin-form h1 {
+    font-size: 1.5rem;
+  }
+  
+  .admin-form form > div {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-guardar,
+  .btn-eliminar,
+  .admin-form a[href*="lista"] {
+    width: 100%;
+    text-align: center;
+    margin-left: 0 !important;
+  }
+}
